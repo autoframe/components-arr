@@ -1,0 +1,27 @@
+{
+    "type": "library",
+    "name": "autoframe/components-arr",
+    "description": "Core Array Utils Autoframe Framework",
+    "license": "MIT",
+    "homepage": "https://github.com/autoframe",
+    "require": {
+        "php": "^7.4 || ^8.0"
+    },
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Nistor Alexandru Marius",
+            "homepage": "https://autoframe.ro",
+            "role": "Developer"
+        }
+    ],
+    "keywords": ["array", "sort", "subkey", "key", "merge", "recoursive"],
+    "autoload": {
+        "psr-4": {
+            "Autoframe\\Components\\Arr\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9.5"
+    }
+}
