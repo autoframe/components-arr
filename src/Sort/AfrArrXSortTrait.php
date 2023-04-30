@@ -16,7 +16,7 @@ use function shuffle;
 use function uasort;
 use function uksort;
 
-trait AfrArrSortTrait
+trait AfrArrXSortTrait
 {
 
     /**
@@ -37,12 +37,10 @@ trait AfrArrSortTrait
         //detect array data type...
         if ($mSortByKey === '' || $mSortByKey === null || $mSortByKey === -1) {
             $aSortableTypes = array_flip(['boolean', 'integer', 'double', 'string', 'NULL']);
-            $bSortByKey = true;//TODO: teste ca cred ca este invers aici
-            $bSortByKey = false;//TODO: teste ca cred ca este invers aici
+            $bSortByKey = false;
             foreach ($aArray as $mVal) {
                 if (!isset($aSortableTypes[gettype($mVal)])) {
-                    $bSortByKey = false;
-                    $bSortByKey = true; //unsortable because of unsupported data
+                    $bSortByKey = true; //unsortable because of unsupported sort data
                     break;
                 }
             }
@@ -66,24 +64,5 @@ trait AfrArrSortTrait
         return false;
 
     }
-
-
-    /**
-     * @param array $aMultiLevelToSort
-     * @param string $sSubArrayKey
-     * @param int $iOrder
-     * @param int $iFlag
-     * @return array
-     */
-    public function arraySortBySubKeyXXX(
-        array  $aMultiLevelToSort,
-        string $sSubArrayKey,
-        int    $iOrder = SORT_ASC,
-        int    $iFlag = SORT_REGULAR
-    ): array
-    {
-        return (new AfrArrSortBySubKeyClass())->arraySortBySubKey($aMultiLevelToSort, $sSubArrayKey, $iOrder, $iFlag);
-    }
-
 
 }

@@ -3,8 +3,8 @@
 <!--   ./vendor/bin/phpunit   -->
 <phpunit colors="true" bootstrap="vendor/autoload.php">
     <testsuites>
-        <testsuite name="Unit Tests">
-            <directory>Tests/Unit</directory>
+        <testsuite name="Autoframe Arr Components">
+            <directory>./Tests/Unit</directory>
         </testsuite>
     </testsuites>
 </phpunit>

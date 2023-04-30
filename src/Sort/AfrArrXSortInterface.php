@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Autoframe\Components\Arr\Sort;
 
-interface AfrArrSortInterface
+interface AfrArrXSortInterface
 {
     /**
      * @param array $aArray

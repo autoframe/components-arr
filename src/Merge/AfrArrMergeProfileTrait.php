@@ -24,6 +24,8 @@ trait AfrArrMergeProfileTrait
                 $aOriginal[$sNewKey] = $mNewProfile;
             } elseif (is_array($aOriginal[$sNewKey]) && is_array($mNewProfile)) {
                 $aOriginal[$sNewKey] = $this->arrayMergeProfile($aOriginal[$sNewKey], $mNewProfile);
+            } elseif(is_integer($sNewKey)) {
+                $aOriginal[] = $mNewProfile;
             } else {
                 $aOriginal[$sNewKey] = $mNewProfile;
             }
