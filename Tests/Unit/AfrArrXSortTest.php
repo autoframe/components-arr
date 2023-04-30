@@ -38,6 +38,8 @@ class AfrArrXSortTest extends TestCase
             75 => null,
             76 => false,
             77 => true,
+            78 => [],
+
         ];
 
 
