@@ -11,10 +11,11 @@ Namespace:
 - Autoframe\\Component\\Arr
 
 Classes:
-- AfrArrCollectionClass
+- AfrArrCollectionClass (contains all the methods from the next classes)
 - AfrArrMergeProfileClass
 - AfrArrSortBySubKeyClass
 - AfrArrXSortClass
+- AfrArrExportArrayAsStringClass (*Limited gettype() types: string, integer, double, NULL, array; Others are serielized*)
 
 Includes:
 - Traits
