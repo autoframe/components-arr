@@ -16,7 +16,7 @@ trait AfrArrExportArrayAsStringTrait
     public function exportPhpArrayAsString(
         array  $aData,
         string $sQuot = "'",
-        string $sEndOfLine = '',
+        string $sEndOfLine = "\n",
         string $sPointComa = ';',
         string $sVarName = '$aData'
     ): string
@@ -32,7 +32,7 @@ trait AfrArrExportArrayAsStringTrait
             } else {
                 $this->exportPhpArrayAsStringFormatKV($sVType, $mVal, $sOut, $sQuot);
             }
-            $sOut .= ',';
+            $sOut .= ',' . $sEndOfLine;
         }
         if ($sVarName) {
             if (substr($sVarName, 0, 1) !== '$') {
@@ -40,7 +40,7 @@ trait AfrArrExportArrayAsStringTrait
             }
             $sVarName .= '=';
         }
-        return $sVarName . '[' . $sOut . ']' . $sPointComa . $sEndOfLine;
+        return $sVarName . '[' . $sEndOfLine . $sOut . ']' . $sPointComa . $sEndOfLine;
     }
 
     /**
@@ -77,7 +77,7 @@ trait AfrArrExportArrayAsStringTrait
     private function exportPhpArrayAsStringAddSlashes(string $mVal, string $sQuot): string
     {
         $s = '\\';
-        return str_replace([$s, $sQuot], [$s.$s, $s.$sQuot], $mVal);
+        return str_replace([$s, $sQuot], [$s . $s, $s . $sQuot], $mVal);
     }
 
 }
