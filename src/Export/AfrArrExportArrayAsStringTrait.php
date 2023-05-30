@@ -53,6 +53,8 @@ trait AfrArrExportArrayAsStringTrait
     {
         if ($sVType === 'integer') {
             $sOut .= $mVal;
+        } elseif ($sVType === 'boolean') {
+            $sOut .= $mVal ? 'true' : 'false';
         } elseif ($sVType === 'double') {
             $mVal = (string)$mVal;
             if (strpos($mVal, '.') === false) {
