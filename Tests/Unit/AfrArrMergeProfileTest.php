@@ -67,7 +67,7 @@ class AfrArrMergeProfileTest extends TestCase
     public function arrayMergeProfileTest(array $aOriginal, array $aNew, array $aExpected): void
     {
         $aMerged = AfrArrMergeProfileClass::getInstance()->arrayMergeProfile($aOriginal, $aNew);
-        $this->assertEquals(serialize($aMerged), serialize($aExpected));
+        $this->assertSame(serialize($aMerged), serialize($aExpected));
     }
 
 

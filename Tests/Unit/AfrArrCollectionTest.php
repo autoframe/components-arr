@@ -15,7 +15,7 @@ class AfrArrCollectionTest extends TestCase
     public function initTest(): void
     {
         $oCollection = AfrArrCollectionClass::getInstance();
-        $this->assertEquals(true, $oCollection instanceof AfrArrCollectionInterface);
+        $this->assertSame(true, $oCollection instanceof AfrArrCollectionInterface);
     }
 
 

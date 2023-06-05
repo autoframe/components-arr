@@ -105,7 +105,7 @@ class AfrArrXSortTest extends TestCase
     public function ArrXSortTest($aArray, $mDirectionOrCallableFn, $mSortByKey, $flags, $aExpectedSort): void
     {
         AfrArrXSortClass::getInstance()->arrayXSort($aArray, $mDirectionOrCallableFn, $mSortByKey, $flags);
-        $this->assertEquals(serialize($aArray), serialize($aExpectedSort), print_r(func_get_args(), true));
+        $this->assertSame(serialize($aArray), serialize($aExpectedSort), print_r(func_get_args(), true));
     }
 
 

@@ -56,7 +56,7 @@ class AfrArrExportArrayAsStringTest extends TestCase
         eval($sArray);
         $s1 = serialize($aOriginal);
         $s2 = serialize($aData);
-        $this->assertEquals($s1,$s2);
+        $this->assertSame($s1,$s2);
     }
 
     /**
