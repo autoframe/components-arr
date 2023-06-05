@@ -3,14 +3,13 @@ declare(strict_types=1);
 
 namespace Unit;
 
-use Autoframe\Components\Arr\AfrArrCollectionTrait;
+use Autoframe\Components\Arr\Export\AfrArrExportArrayAsStringClass;
 use PHPUnit\Framework\TestCase;
 
 class AfrArrExportArrayAsStringTest extends TestCase
 {
-    use AfrArrCollectionTrait;
 
-    function exportPhpArrayAsStringProvider(): array
+    static function exportPhpArrayAsStringProvider(): array
     {
         echo __CLASS__ . '->' . __FUNCTION__ . PHP_EOL;
         $oClass = serialize(new \stdClass());
@@ -52,7 +51,7 @@ class AfrArrExportArrayAsStringTest extends TestCase
      */
     public function exportPhpArrayAsStringTest(array $aOriginal): void
     {
-        $sArray = $this->exportPhpArrayAsString($aOriginal);
+        $sArray = AfrArrExportArrayAsStringClass::getInstance()->exportPhpArrayAsString($aOriginal);
         $aData = [];
         eval($sArray);
         $s1 = serialize($aOriginal);
@@ -67,7 +66,7 @@ class AfrArrExportArrayAsStringTest extends TestCase
     public function exportPhpArrayAsStringLimitationTest(array $aOriginal): void
     {
         $aOriginal['class'] = unserialize($aOriginal['class']);
-        $sArray = $this->exportPhpArrayAsString($aOriginal);
+        $sArray = AfrArrExportArrayAsStringClass::getInstance()->exportPhpArrayAsString($aOriginal);
         $aData = [];
         eval($sArray);
         $s1 = serialize($aOriginal);

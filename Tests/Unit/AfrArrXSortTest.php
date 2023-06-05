@@ -3,15 +3,13 @@ declare(strict_types=1);
 
 namespace Unit;
 
-use Autoframe\Components\Arr\AfrArrCollectionTrait;
+use Autoframe\Components\Arr\Sort\AfrArrXSortClass;
 use PHPUnit\Framework\TestCase;
 
 class AfrArrXSortTest extends TestCase
 {
-    use AfrArrCollectionTrait;
 
-
-    function ArrXSortDataProvider(): array
+    static function ArrXSortDataProvider(): array
     {
         echo __CLASS__ . '->' . __FUNCTION__ . PHP_EOL;
         $aSet = $aTempSort = [
@@ -106,7 +104,7 @@ class AfrArrXSortTest extends TestCase
      */
     public function ArrXSortTest($aArray, $mDirectionOrCallableFn, $mSortByKey, $flags, $aExpectedSort): void
     {
-        $this->arrayXSort($aArray, $mDirectionOrCallableFn, $mSortByKey, $flags);
+        AfrArrXSortClass::getInstance()->arrayXSort($aArray, $mDirectionOrCallableFn, $mSortByKey, $flags);
         $this->assertEquals(serialize($aArray), serialize($aExpectedSort), print_r(func_get_args(), true));
     }
 

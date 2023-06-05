@@ -3,14 +3,13 @@ declare(strict_types=1);
 
 namespace Unit;
 
-use Autoframe\Components\Arr\AfrArrCollectionTrait;
+use Autoframe\Components\Arr\Merge\AfrArrMergeProfileClass;
 use PHPUnit\Framework\TestCase;
 
 class AfrArrMergeProfileTest extends TestCase
 {
-    use AfrArrCollectionTrait;
 
-    function arrayMergeProfileProvider(): array
+    static function arrayMergeProfileProvider(): array
     {
         echo __CLASS__ . '->' . __FUNCTION__ . PHP_EOL;
         $aReturn = [];
@@ -67,7 +66,7 @@ class AfrArrMergeProfileTest extends TestCase
      */
     public function arrayMergeProfileTest(array $aOriginal, array $aNew, array $aExpected): void
     {
-        $aMerged = $this->arrayMergeProfile($aOriginal, $aNew);
+        $aMerged = AfrArrMergeProfileClass::getInstance()->arrayMergeProfile($aOriginal, $aNew);
         $this->assertEquals(serialize($aMerged), serialize($aExpected));
     }
 

@@ -10,7 +10,7 @@
 Namespace:
 - Autoframe\\Component\\Arr
 
-Classes:
+SINGLETON Classes:
 - AfrArrCollectionClass (contains all the methods from the next classes)
 - AfrArrMergeProfileClass
 - AfrArrSortBySubKeyClass

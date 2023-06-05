@@ -3,14 +3,13 @@ declare(strict_types=1);
 
 namespace Unit;
 
-use Autoframe\Components\Arr\AfrArrCollectionTrait;
+use Autoframe\Components\Arr\Sort\AfrArrSortBySubKeyClass;
 use PHPUnit\Framework\TestCase;
 
 class AfrArrSortBySubKeyTest extends TestCase
 {
-    use AfrArrCollectionTrait;
 
-    function arraySortBySubKeyProvider(): array
+    static function arraySortBySubKeyProvider(): array
     {
         $people = array(
             12345 => array(
@@ -59,7 +58,7 @@ class AfrArrSortBySubKeyTest extends TestCase
         foreach($aExpectedIndexOrder as $mKey){
             $aExpected[$mKey] =  $aToSort[$mKey];
         }
-        $aSorted = $this->arraySortBySubKey($aToSort,$sKey,$iDirection);
+        $aSorted = AfrArrSortBySubKeyClass::getInstance()->arraySortBySubKey($aToSort,$sKey,$iDirection);
         $this->assertSame($aSorted, $aExpected, print_r(func_get_args(), true));
     }
 

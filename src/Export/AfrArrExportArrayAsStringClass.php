@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace Autoframe\Components\Arr\Export;
 
-class AfrArrExportArrayAsStringClass implements AfrArrExportArrayAsStringInterface
+use Autoframe\DesignPatterns\Singleton\AfrSingletonAbstractClass;
+
+class AfrArrExportArrayAsStringClass extends AfrSingletonAbstractClass implements AfrArrExportArrayAsStringInterface
 {
     use AfrArrExportArrayAsStringTrait;
 }
